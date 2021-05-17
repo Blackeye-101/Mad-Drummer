@@ -1,19 +1,8 @@
-// document.querySelector("button").addEventListener("click",handleClick);
-//using a pair of paranthesis here like this handleClick() would call the method handleClick when the javascript loads up without even waiting for the eventListener to even listen for the event specified.
-
-//here we are passing this function as an input so that it can be called at a later time when the condition is satisfied
-
-// function handleClick(){
-//     alert("yup, definitely clicked")
-// }
-
 var n=document.querySelectorAll(".drum").length;
 
 for(var i=0;i<n;i++){
     document.querySelectorAll("button")[i].addEventListener("click", function(){
         
-        //set of instructions to do when clicked
-        //in the form of an anonymous function instead of a named one like handleClick
         var buttonPressed=this.innerHTML;
 
         makeSound(buttonPressed);
@@ -21,18 +10,13 @@ for(var i=0;i<n;i++){
     });
 }
 
-//applying the event listener to the keyboard
 document.addEventListener("keydown", function(event){
-    //event gives the details of the listened event in the form of an object.
-    //key is the property of event which tells which key was pressed.
+ 
     var keyPressed= event.key;
 
     makeSound(keyPressed);
     buttonAnimation(keyPressed);
-
-    //instead of calling the event we can call it by any name and still it would give us the info about the event
-    //this is because it is the input that the event listener is providing to the anonymous function.
-    
+ 
    
 });
 
@@ -87,7 +71,6 @@ function buttonAnimation(key){
 
     pressed.classList.add("pressed");
 
-    //timeout function is used to execute a certain function after a certain duration of time passed as arguement in miliseconds.
     setTimeout(function(){
         pressed.classList.remove("pressed");
     },100);
